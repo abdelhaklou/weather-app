@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>weather app prototype design</title>
+<meta name="description" content="This is a prototype of the weather app responsive design both with html5 and css3">
+<link rel="stylesheet" href="style.css" />
+<style>
+    #temp_c{
+        font-size: 6.5em;
+        font-weight: 900;
+    }
+    #temp_c::after{
+    content: '\00B0 C';
+    font-size: 3rem;
+    position: relative;
+    top:-50px;
+    }
+    span{
+        font-size: 18px;
+    }
+
+
+    
+</style>
+</head>
+<body>
+
+<header id="page-header" class="header">
+    <div class="container flex">
+        <h1 class="app-logo">Weather App</h1>
+    
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <section id="main-content" class="weather-info">
+        <div class="container grid">
+            <div class="search-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="searchfield" name="search" required placeholder="Search for a location ..."/>
+                        <button type="submit" class="btnsubmited">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="weather-location hidden flex">
+                <h1 id="location"></h1>
+                
+                <div>
+                    <span id="weather-title"></span>
+                </div>
+               
+            </div>
+            <div class="weather-details hidden flex">
+                <div>
+                    <span id="feelslike"></span><br/>
+                    <span id="humidity"></span><br/>
+                    <span id="wind"></span><br/>
+                </div>
+        
+                <div>
+                    <span id="temp_c"></span>
+                </div>
+                <div id="location-icon"></div>
+              
+          
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+<footer id="page-footer" class="footer">
+    <div class="container">
+        
+        <p>This application was created and designed by <a href="#">ABDEL94</a></p>
+        <h2 class="app-logo">Weather App</h2>
+    </div>
+    
+</footer>
+<script src="app.js"></script>
+
+</body>
+</html>
