@@ -115,7 +115,7 @@ function displayIn(weatherInfo , requiredDomElements){
   getWeatherIcon(weatherInfo, locationIcon);
 
 }
-// display data html container when weather data is ready for use
+// display data content when weather fetched data is ready for use
 function displayWeatherInfoBox(){
     const x = document.querySelector('.weather-location');
     const y = document.querySelector('.weather-details');
