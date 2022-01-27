@@ -4,89 +4,80 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>weather app prototype design</title>
-<meta name="description" content="This is a weather app made for learning purpose and it is still under development">
+<meta name="description" content="This is a responsive weather app built for learning purpose and there will be new features implemented soon ">
 <link rel="stylesheet" href="style.css" />
-<style>
-    #temp_c{
-        font-size: 6.5em;
-        font-weight: 900;
-    }
-    #temp_c::after{
-    content: '\00B0 C';
-    font-size: 3rem;
-    position: relative;
-    top:-50px;
-    }
-    span{
-        font-size: 18px;
-    }
-
-
-    
-</style>
+<script src="./bootstrap.bundle.min.js" ></script>
 </head>
 <body>
+    <!--Navigation bar-->
+    <nav style="opacity: 0.8;" class="navbar navbar-expand-lg bg-dark navbar-dark py-2">
 
-<header id="page-header" class="header">
-    <div class="container flex">
-        <h1 class="app-logo">Weather App</h1>
-    
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        <div class="container">
+          <a href="#" class="navbar-brand">Weather App</a>
+      
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="#" class="nav-link active" >Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link " > About </a></li>
+                </ul>
+            </div>
+        </div>
+      
+      </nav>
+
+<!--Main Content Sections-->
 <main>
-    <section id="main-content" class="weather-info">
-        <div class="container grid">
-            <div class="search-form">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="searchfield" name="search" required placeholder="Search for a location ..."/>
-                        <button type="submit" class="btnsubmited">Search</button>
-                    </div>
-                </form>
-            </div>
-            <div class="weather-location hidden flex">
-                <h1 id="location"></h1>
-                
-                <div>
-                    <span id="weather-title"></span>
-                </div>
+    <!-- Search Input container section -->
+    <section id="search-location-container" class="bg-dark text-light my-4 mx-5">
+        <div class="container">
+           <form>
+
+                <div class="d-md-flex  align-items-center">
                
-            </div>
-            <div class="weather-details hidden flex">
-                <div>
-                    <span id="feelslike"></span><br/>
-                    <span id="humidity"></span><br/>
-                    <span id="wind"></span><br/>
-                </div>
-        
-                <div>
-                    <span id="temp_c"></span>
-                </div>
-                <div id="location-icon"></div>
+                    <div class="input-group mt-5 w-50">
+                    <input type="text" class="form-control searchfield " placeholder="Search a location ...">
+                    <button type="button" class="btn btn-lg btnsubmited bg-info text-light">Search</button>
+                    </div>
+            
+              </div>
               
-          
-            </div>
+           </form>
         </div>
     </section>
 
+    <!-- Display some fetched data from server in this section -->
+    <section id="weather-info-container" class="bg-dark text-light my-5 mx-5">
+        <div class="row mx-5 px-5 text-center">
+            <div class="col-md-3 padding-top-twenty lead">
+                <span id="feelslike"></span><br/>
+                <span id="humidity"></span><br/>
+                <span id="wind"></span><br/>
+            </div>
+            <div class="col-md-3">
+                <span id="temp_c" class="hidden"></span><br/>
+            </div>
+            <div class="col-md-3 padding-top-twenty lead"> 
+                <span id="time"></span><br/>     
+                <span id="location"></span><br/>
+                <span id="region"></span><br/>
+                <span id="country"></span><br/>
+            </div>
+            <div class="col-md-3 padding-top-twenty lead">  
+                <span id="weather-title"></span>
+                <br/>
+                <span id="location-icon"></span>
+            </div>
+     
+        </div>
+    </section>
 
 </main>
 
-<footer id="page-footer" class="footer">
-    <div class="container">
-        
-        <p>This application was created and designed by <a href="#">ABDEL94</a></p>
-        <h2 class="app-logo">Weather App</h2>
-    </div>
-    
-</footer>
+
 <script src="app.js"></script>
 
 </body>
