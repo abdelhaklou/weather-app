@@ -9,7 +9,11 @@ const requiredDomElements = {
   feelslike : document.getElementById('feelslike'),
   weatherTitle : document.getElementById('weather-title'),
   location : document.getElementById('location'),
+  region : document.getElementById('region'),
+  country : document.getElementById('country'),
+  time : document.getElementById('time'),
   locationIcon : document.getElementById('location-icon'),
+
 
 };
 
@@ -26,8 +30,8 @@ const requiredDomElements = {
  
 
    if (getWeather(apikey , searchVal)){
-
-      displayWeatherInfoBox()
+    
+    displayTemparture(requiredDomElements.temp);
 
    }
    
@@ -48,6 +52,7 @@ async function getWeather(apikey , searchVal){
         }
 
         const weatherData = await response.json();
+        console.log(weatherData);
         const weatherInfo = processData(weatherData);
     
          displayIn(weatherInfo, dom);
@@ -75,6 +80,7 @@ function processData(weatherData){
       city : weatherData.location.name,
       region : weatherData.location.region,
       country : weatherData.location.country,
+      time : weatherData.location.localtime,
       weather : weatherData.current.condition.text,
       weatherIcon : weatherData.current.condition.icon,
       temp_c : Math.floor(weatherData.current.temp_c),
@@ -108,14 +114,18 @@ function displayIn(weatherInfo , requiredDomElements){
   requiredDomElements.wind.textContent ='wind: '+ weatherInfo.wind + 'km/hr';
   requiredDomElements.feelslike.textContent = 'Feelslike: '+ weatherInfo.feelslike_c + 'C';
   requiredDomElements.weatherTitle.textContent = weatherInfo.weather;
-  requiredDomElements.location.textContent = weatherInfo.city + ', ' + weatherInfo.country;
+  requiredDomElements.location.textContent = weatherInfo.city;
+  requiredDomElements.country.textContent = weatherInfo.country;
+  requiredDomElements.region.textContent = weatherInfo.region;
+  requiredDomElements.time.textContent = weatherInfo.time;
+
 
   locationIcon = requiredDomElements.locationIcon;
 
   getWeatherIcon(weatherInfo, locationIcon);
 
 }
-// display data content when weather fetched data is ready for use
+// display data html container when weather data is ready for use
 function displayWeatherInfoBox(){
     const x = document.querySelector('.weather-location');
     const y = document.querySelector('.weather-details');
@@ -130,6 +140,14 @@ function displayWeatherInfoBox(){
 
 }
 
+function displayTemparture(temp){
+
+  if(temp.classList.contains('hidden')){
+    temp.classList.remove('hidden');
+    temp.classList.add('visible');
+  }
+
+}
 
 
 
